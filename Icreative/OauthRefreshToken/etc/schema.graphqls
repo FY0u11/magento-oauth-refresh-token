@@ -1,0 +1,9 @@
+type Mutation {
+    generateCustomerToken(email: String!, password: String!): CustomerToken @resolver(class: "\\Icreative\\OauthRefreshToken\\Model\\Resolver\\GenerateCustomerToken") @doc(description:"Retrieve the customer token")
+    reissueCustomerToken(refreshToken: String!): CustomerToken @resolver(class: "\\Icreative\\OauthRefreshToken\\Model\\Resolver\\ReissueCustomerToken") @doc(description:"Reissue the customer token")
+}
+
+type CustomerToken {
+    accessToken: String! @doc(description: "The customer token")
+    refreshToken: String! @doc(description: "The customer refresh token")
+}
